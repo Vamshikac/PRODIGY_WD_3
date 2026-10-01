@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e1b4b, #2563eb);
+    color: white;
+}
+
+h1 {
+    margin-bottom: 0;
+    letter-spacing: 2px;
+}
+
+#statusText {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 320px;
+    gap: 8px;
+    margin: 20px auto;
+}
+
+.cell {
+    aspect-ratio: 1;
+    font-size: 3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+}
+
+/* only empty cells on an active board react to hover */
+#board:not(.locked) .cell:not(.filled):hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+}
+
+#board.locked .cell {
+    cursor: not-allowed;
+}
+
+.cell.x { color: #ff6b81; }
+.cell.o { color: #48dbfb; }
+
+/* pop-in animation when a move is placed */
+.cell.filled {
+    animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+    from { transform: scale(0.3); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.cell.winner {
+    background: rgba(46, 213, 115, 0.45);
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(46, 213, 115, 0.7);
+    z-index: 1;
+}
+
+/* scoreboard */
+#scoreboard {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.score {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#resetBtn {
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #1e1b4b;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#resetBtn:hover {
+    transform: scale(1.06);
+}
+
+#statusText.win {
+    font-size: 2.5rem;
+    animation: bounce 0.6s ease;
+}
+
+#statusText.win.x { color: #ff6b81; }
+#statusText.win.o { color: #48dbfb; }
+
+#statusText.draw {
+    font-size: 2rem;
+    color: #feca57;
+}
+
+@keyframes bounce {
+    0%   { transform: scale(0.5); opacity: 0; }
+    60%  { transform: scale(1.2); }
+    100% { transform: scale(1);   opacity: 1; }
+}

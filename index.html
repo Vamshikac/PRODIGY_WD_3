@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Tic Tac Toe</h1>
+
+    <p id="statusText">X's turn</p>
+
+    <div id="board">
+
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+        
+
+    </div>
+
+    <div id="scoreboard">
+    <div class="score">X: <span id="scoreX">0</span></div>
+    <div class="score">Draws: <span id="scoreDraw">0</span></div>
+    <div class="score">O: <span id="scoreO">0</span></div>
+    </div>
+
+    <button id="resetBtn">Reset</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
