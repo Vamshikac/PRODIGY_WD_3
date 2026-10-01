@@ -121,3 +121,23 @@ h1 {
     60%  { transform: scale(1.2); }
     100% { transform: scale(1);   opacity: 1; }
 }
+
+#modeSelect {
+    margin-bottom: 10px;
+}
+
+.modeBtn {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modeBtn.active {
+    background: white;
+    color: #1e1b4b;
+}
